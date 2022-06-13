@@ -4,9 +4,9 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
+        stage('Pull the Dockerfile From Github') {
             steps {
-                echo 'Hello World From Poll SCM 2nd time'
+                git branch: 'main', url: 'https://github.com/Swaroop-751/Jenkinsfile_Dockerfile.git'
             }
         }
     }
