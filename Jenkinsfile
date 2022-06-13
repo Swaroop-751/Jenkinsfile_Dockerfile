@@ -9,5 +9,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Swaroop-751/Jenkinsfile_Dockerfile.git'
             }
         }
+
+	stage('Build Docker Image') {
+            steps {
+                sh 'cd /home/ec2-user/newspace/workspace/cloudproject/ && sudo docker build -t $JOB_NAME:v1.$BUILD_ID .'
+		sh 'sudo docker images'
+            }
+        }
     }
 }
