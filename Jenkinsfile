@@ -33,9 +33,20 @@ pipeline {
     // some block
 }
                 
-                
+            }
+	}
+            
+ 	stage('Push Docker Image to Docker Hub') {
+            steps{
+               	sh 'sudo docker image push swar2001/$JOB_NAME:v1.8'
+                sh 'sudo docker image push swar2001/$JOB_NAME:latest'
+		sh 'sudo docker rmi swar2001/$JOB_NAME:v1.8
+		sh 'sudo docker rmi swar2001/$JOB_NAME:latest
+		sh 'sudo docker images'
+	
             }
         }
+        
 	
     }
 }
