@@ -24,5 +24,18 @@ pipeline {
                 sh 'sudo docker image tag $JOB_NAME:v1.8 swar2001/$JOB_NAME:latest'
             }
         }
+
+	stage('Login to Docker Hub') {
+            steps{
+                
+                withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORDD', variable: 'DOCKER_HUB_PASSWD')]) {
+                sh 'sudo docker login -u swar2001 -p $DOCKER_HUB_PASSWD'
+    // some block
+}
+                
+                
+            }
+        }
+	
     }
 }
