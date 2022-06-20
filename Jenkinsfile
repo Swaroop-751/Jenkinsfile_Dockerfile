@@ -12,7 +12,7 @@ pipeline {
 
 	stage('Build Docker Image') {
             steps {
-                sh 'cd /home/ec2-user/jenkinsws/workspace/cloudproject && sudo docker build -t $JOB_NAME:v1.$BUILD_ID .'
+                sh 'cd /home/ec2-user/ws/workspace/cloudproject && sudo docker build -t $JOB_NAME:v1.$BUILD_ID .'
 		sh 'sudo docker images'
             }
         }
